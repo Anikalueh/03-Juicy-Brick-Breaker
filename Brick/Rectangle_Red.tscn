@@ -1,0 +1,126 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Brick/Brick.gd" type="Script" id=1]
+[ext_resource path="res://Assets/SlimeBrick.png" type="Texture" id=2]
+[ext_resource path="res://Assets/SlimeBrick-2.png.png" type="Texture" id=3]
+[ext_resource path="res://Brick/Slime.gd" type="Script" id=4]
+[ext_resource path="res://Assets/bubble.png" type="Texture" id=5]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 120, 120 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 120, 0, 120, 120 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 240, 0, 120, 120 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 360, 0, 120, 120 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 120, 120, 120 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 120, 120, 120, 120 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 240, 120, 120, 120 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 360, 120, 120, 120 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 240, 120, 120 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 120, 240, 120, 120 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 240, 240, 120, 120 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 360, 240, 120, 120 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 360, 120, 120 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Curve" id=15]
+_data = [ Vector2( 0, 0.5 ), 0.0, 0.0, 0, 0, Vector2( 0.50625, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.99375, 0.0090909 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=16]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="Brick" type="StaticBody2D"]
+script = ExtResource( 1 )
+
+[node name="Brick" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2( 2, 2 )
+polygon = PoolVector2Array( 21, -12.9, 21, -11.2, 25, -9.2, 25, 5, -23, 5, -23, 3.2, -27, 1.2, -27, -12.2, -25, -13.2, -25, -15.1 )
+
+[node name="Slime" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 14 )
+frame = 7
+script = ExtResource( 4 )
+
+[node name="Bubbles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 15
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.5
+texture = ExtResource( 5 )
+emission_shape = 2
+emission_rect_extents = Vector2( 100, 20 )
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 300.0
+initial_velocity_random = 1.0
+scale_amount = 0.75
+scale_amount_curve = SubResource( 15 )
+color = Color( 0.4, 1, 0.34902, 1 )
+color_ramp = SubResource( 16 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[node name="Tween" type="Tween" parent="."]

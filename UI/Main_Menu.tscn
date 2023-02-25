@@ -1,0 +1,179 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://UI/Main_Menu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sniglet Regular.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI/UI(TEXT).tres" type="Theme" id=3]
+[ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/Boundary.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Menu_Sound_PROJECT03.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Assets/SlimeWall.png" type="Texture" id=7]
+[ext_resource path="res://UI/Background.gd" type="Script" id=8]
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 1280, 0, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 2560, 0, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 3840, 0, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 1000, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 1280, 1000, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 2560, 1000, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 3840, 1000, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 2000, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 1280, 2000, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 2560, 2000, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 3840, 2000, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 3000, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 1280, 3000, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 2560, 3000, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 3840, 3000, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 4000, 1280, 1000 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 1280, 4000, 1280, 1000 )
+
+[sub_resource type="SpriteFrames" id=20]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="DynamicFont" id=1]
+size = 65
+outline_size = 4
+outline_color = Color( 0.258824, 0.831373, 0.270588, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Main_Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+
+[node name="Boundary" type="StaticBody2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundary"]
+polygon = PoolVector2Array( 0, -8, 0, -128, 1152, -128, 1152, 896, -128, 904, -128, -128, 0, -128, 0, 800, 1024, 800, 1024, 0 )
+
+[node name="Background" type="AnimatedSprite" parent="."]
+position = Vector2( 511.68, 402 )
+scale = Vector2( 0.812, 0.812 )
+frames = SubResource( 20 )
+frame = 16
+script = ExtResource( 8 )
+
+[node name="Ball" parent="." instance=ExtResource( 4 )]
+position = Vector2( 200, 200 )
+linear_velocity = Vector2( 800, 550 )
+
+[node name="Ball2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 900, 600 )
+linear_velocity = Vector2( -500, 600 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -300.0
+custom_fonts/font = SubResource( 1 )
+text = "Slime Slammer"
+align = 1
+valign = 1
+
+[node name="Play" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -20.0
+margin_right = 100.0
+margin_bottom = 20.0
+text = "Play"
+
+[node name="Quit" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = 50.0
+margin_right = 100.0
+margin_bottom = 90.0
+text = "Quit"
+
+[node name="Music_Menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]

@@ -1,0 +1,9 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Sniglet Regular.otf" type="DynamicFontData" id=1]
+
+[resource]
+size = 50
+outline_size = 4
+outline_color = Color( 0.368627, 0.827451, 0.270588, 1 )
+font_data = ExtResource( 1 )
