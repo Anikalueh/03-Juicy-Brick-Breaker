@@ -8,9 +8,14 @@ Created using GoDot engine and GDScript
 
 ## Features
 - Sound Effects: Free Sound
-Break Brick:      * FX - Slime / Click by bolkmar - February 14th, 2019
-Wall & Paddle:    * hit.wav by StaneStane - June 6th, 2009
-Death:            * Bright Bounce by Jerimee - July 11th, 2020
+
+Break Brick:
+* FX - Slime / Click by bolkmar - February 14th, 2019
+Wall & Paddle:
+* hit.wav by StaneStane - June 6th, 2009
+Death:
+* Bright Bounce by Jerimee - July 11th, 2020
+
 - Music: Auxy
     * All music created by Anika Luehrmann
 - Animated Bricks: Piskel
